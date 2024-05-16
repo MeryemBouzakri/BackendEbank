@@ -14,7 +14,7 @@ public class CostumerDTO {
 
     private Long id ;
     private String name;
-    private String mail;
+   private String mail;
 
 
 }
