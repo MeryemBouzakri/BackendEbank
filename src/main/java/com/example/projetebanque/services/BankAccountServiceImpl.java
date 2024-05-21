@@ -201,5 +201,12 @@ private BankAccountMappermpl dtoMapper;
         return accountHistoryDTO;
     }
 
+    @Override
+    public List<CostumerDTO> searchCustumers(String keyword) {
+        List<Costumer>costumers=costumerRepository.searchCustomer(keyword);
+        List<CostumerDTO> costumerDTOS = costumers.stream().map(cust -> dtoMapper.fromCostumer(cust)).collect(Collectors.toList());
+   return costumerDTOS;
+    }
+
 
 }
