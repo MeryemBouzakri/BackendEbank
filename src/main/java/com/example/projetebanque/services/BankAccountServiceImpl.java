@@ -141,6 +141,13 @@ private BankAccountMappermpl dtoMapper;
 
     }
 
+
+    @Override
+    public void transfer(String accountIdSource, String accountIdDestination, double amount) throws BankAccountNotFoundException, BalanceNotSufficientExceptiom {
+        debit(accountIdSource,amount,"Transfer to "+accountIdDestination);
+        credit(accountIdDestination,amount,"Transfer from "+accountIdSource);
+    }
+
     @Override
     public void tranfert(String accountIdSource, String accountIdDestination, double amount) throws BankAccountNotFoundException, BalanceNotSufficientExceptiom {
         debit(accountIdSource,amount,"Transfer to"+accountIdDestination);
